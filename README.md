@@ -1,16 +1,16 @@
-# Gabon Vote Star — prototype
+# Gabon Vote Star — prototype modifié
 
 ## Lancer
-Ouvrir `index.html` dans un navigateur moderne, ou servir le dossier avec un serveur local.
+Décompresser le ZIP puis ouvrir `index.html` dans un navigateur moderne, ou héberger le dossier sur un serveur web statique.
 
-## Inclus
-- Fil de vidéos et interactions de démonstration
-- Publication de vidéo locale (non persistante)
-- Duel de deux artistes
-- Demande de vote avec code Moov Money et référence de transaction
-- Admin : approbation/refus, paramètres, calcul de commission de démonstration, export CSV
+## Nouveautés
+- Connexion à l'espace administrateur (mot de passe initial : `admin123`). Change ce mot de passe après connexion, dans « Sécurité administrateur ».
+- Gestion des publications dans l'administration : suppression avec confirmation et copie du lien individuel.
+- Chaque publication dispose d'un lien direct de type `?video=ID`; le lien ouvre et met en évidence la vidéo correspondante.
+- Paramètres, transactions et publications sauvegardés dans le stockage local du navigateur (`localStorage`).
+- Les vidéos choisies sont converties en données locales pour tenter de les conserver après rechargement.
 
 ## Limites importantes
-Ceci est un prototype frontend. Les données restent en mémoire et se réinitialisent au rechargement. Les vidéos ne sont pas envoyées à un serveur. Aucun paiement Moov Money n'est déclenché ou vérifié automatiquement. Les votes approuvés et commissions sont uniquement des données de démonstration.
+Ce dossier reste un prototype frontend. Le stockage est propre au navigateur/appareil et peut être limité (les fichiers vidéo volumineux peuvent dépasser le quota). La suppression ne synchronise pas d'autres appareils. Le mot de passe est stocké localement et n'est pas une authentification sécurisée : un utilisateur technique peut le contourner. Pour le site public, il faut un backend, une base de données, une authentification serveur, un stockage vidéo et des droits administrateur. Les paiements Moov Money ne sont pas déclenchés ni vérifiés automatiquement.
 
-Pour une mise en production, il faut un backend/API, base de données, authentification et rôles admin, stockage vidéo, validation des paiements auprès de Moov Money ou par rapprochement sécurisé, protections anti-fraude et conformité locale. Ne demandez jamais le PIN Moov Money aux utilisateurs.
+Ne demandez jamais le PIN Moov Money aux utilisateurs.
