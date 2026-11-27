@@ -1,4 +1,4 @@
-# Gabon Vote Star (GVS) — prototype enrichi
+# GS - Gabon star (GVS) — prototype enrichi
 
 ## Nouveautés de cette version
 - Recherche des vidéos, artistes et des deux artistes configurés dans le duel.
