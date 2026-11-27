@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gabon Vote Star</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="star">★</span> GABON <b>VOTE STAR</b></div>
+  <nav><button class="nav active" data-view="feed">Découvrir</button><button class="nav" data-view="duels">Duels</button><button class="nav" data-view="admin">Administration</button></nav>
+  <button class="primary" id="openUpload">＋ Publier</button>
+</header>
+<main>
+<section id="feedView" class="view">
+  <div class="hero"><div><p class="eyebrow">LA SCÈNE GABONAISE, C’EST VOUS QUI LA FAITES</p><h1>Vote pour ta<br><span>star préférée.</span></h1><p>Découvre les clips, soutiens tes artistes et fais grimper ton favori.</p><button class="primary" data-view="duels">Voir les duels →</button></div><div class="hero-art">🇬🇦<div class="orbit">VOTE • MUSIQUE • GABON •</div></div></div>
+  <div class="sectionhead"><div><h2>À la une</h2><p>Les vidéos du moment</p></div><select id="sortFeed"><option value="popular">Les plus populaires</option><option value="new">Récentes</option></select></div>
+  <div id="feed" class="feed"></div>
+</section>
+<section id="duelsView" class="view hidden">
+  <div class="sectionhead"><div><h2>Les duels</h2><p>Choisis ton artiste et envoie ton vote.</p></div></div>
+  <div class="duel">
+    <article class="artist"><div class="artistphoto p1">🎤</div><h3>Shanel</h3><p>Afro-pop • Libreville</p><strong id="votes1">128 votes</strong></article>
+    <div class="versus">VS</div>
+    <article class="artist"><div class="artistphoto p2">🎧</div><h3>J-Rio</h3><p>Afrobeat • Gabon</p><strong id="votes2">116 votes</strong></article>
+  </div>
+  <div class="vote-cta"><h3>Qui mérite la victoire ?</h3><p>Un vote = <b id="votePriceLabel">100 FCFA</b></p><button class="primary" onclick="openVote('Shanel')">Voter pour Shanel</button><button class="secondary" onclick="openVote('J-Rio')">Voter pour J-Rio</button></div>
+  <p class="notice">Les votes soumis sont en attente jusqu’à la vérification manuelle du paiement par l’administration.</p>
+</section>
+<section id="adminView" class="view hidden">
+  <div class="sectionhead"><div><h2>Tableau de bord</h2><p>Suivi de la plateforme — données de démonstration</p></div><button class="secondary" id="exportCsv">Exporter CSV</button></div>
+  <div class="stats"><div class="stat"><small>Commissions nettes</small><b id="net">0 FCFA</b></div><div class="stat"><small>Paiements approuvés</small><b id="approved">0</b></div><div class="stat"><small>En attente</small><b id="pending">0</b></div><div class="stat"><small>Votes comptabilisés</small><b id="voteCount">0</b></div></div>
+  <div class="admincols"><div class="panel"><h3>Paiements à vérifier</h3><div id="transactions"></div></div><div class="panel"><h3>Paramètres</h3><label>Prix du vote (FCFA)<input id="price" type="number" min="1" value="100"></label><label>Commission (%)<input id="commission" type="number" min="0" max="100" value="10"></label><label>Code Moov Money<input id="moov" value="*555*2*062098889"></label><button class="primary full" id="saveSettings">Enregistrer</button><p class="small">La commission affichée est une simulation de gestion. Ce prototype ne détient ni ne transfère d’argent.</p></div></div>
+  <div class="panel"><h3>Ajouter une transaction (test)</h3><div class="inlineform"><input id="txName" placeholder="Nom du votant"><input id="txArtist" placeholder="Artiste choisi"><input id="txRef" placeholder="Référence Moov"><button class="primary" id="addTx">Ajouter</button></div></div>
+</section>
+</main>
+<footer><span>© Gabon Vote Star</span><span>Prototype de démonstration • 🇬🇦</span></footer>
+<div class="modal hidden" id="uploadModal"><div class="modalbox"><button class="close" data-close>×</button><h2>Publier une vidéo</h2><label>Nom de l’artiste<input id="artistName" placeholder="Nom d’artiste"></label><label>Choisir une vidéo<input type="file" id="videoFile" accept="video/*"></label><div id="preview"></div><button class="primary full" id="publish">Publier dans le fil</button><p class="small">La vidéo est ajoutée uniquement à cette session de démonstration.</p></div></div>
+<div class="modal hidden" id="voteModal"><div class="modalbox"><button class="close" data-close>×</button><h2>Voter pour <span id="selectedArtist"></span></h2><p class="price"><span id="votePrice">100</span> FCFA / vote</p><div class="paymentstep"><b>1. Effectue le dépôt Moov Money</b><code id="moovCode">*555*2*062098889</code><button class="secondary full" id="copyCode">Copier le code</button></div><div class="paymentstep"><b>2. Confirme ton paiement</b><label>Référence de transaction<input id="voteRef" placeholder="Ex. MVM-123456" required></label><label>Nombre de votes<input id="voteQty" type="number" min="1" max="20" value="1"></label><button class="primary full" id="submitVote">Envoyer pour vérification</button></div><p class="small">Ton vote sera compté après validation par l’administrateur. N’entre pas ton code PIN Moov Money ici.</p></div></div>
+<div class="toast hidden" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
