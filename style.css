@@ -14,16 +14,3 @@
 #artistView .panel{max-width:760px;margin:22px auto}
 #adminProtected>.panel{margin-top:18px}
 @media(max-width:700px){#globalSearch{width:100%;max-width:none;order:3}.sectionhead{flex-wrap:wrap}}
-
-/* GS — Gabon star premium identity */
-.brand{display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0}
-.gs-drop{width:58px;height:68px;display:grid;place-items:center;clip-path:path('M 29 0 C 22 13 4 31 4 45 C 4 59 15 68 29 68 C 43 68 54 59 54 45 C 54 31 36 13 29 0 Z');background:linear-gradient(150deg,#f7d56a 0%,#d6a52e 48%,#8f6511 100%);color:#101827;font-size:24px;font-weight:950;letter-spacing:-2px;filter:drop-shadow(0 5px 9px #0005)}
-.brand-name{display:flex;align-items:center;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:#d7dce7}
-.brand-name b{font-weight:800}
-.artist-own-videos{margin-top:24px}
-.artist-own-videos .tx{align-items:center}
-.topbar{backdrop-filter:blur(16px)}
-.video-card,.panel,.duel,.vote-cta{box-shadow:0 12px 36px rgba(0,0,0,.16)}
-button{transition:transform .18s ease,filter .18s ease}
-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-@media(max-width:600px){.gs-drop{width:46px;height:54px;font-size:20px}.brand-name{font-size:10px;letter-spacing:1.6px}}
